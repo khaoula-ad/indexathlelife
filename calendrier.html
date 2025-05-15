@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>calendrier AthleLife</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+      <!-- style css -->
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="css/responsive.css">
+      <!-- fevicon -->
+      <link rel="icon" href="images/fevicon.png" type="image/gif" />
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+      <!-- Tweaks for older IEs-->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <!-- owl stylesheets --> 
+      <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Raleway:400,700,800&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="css/owl.carousel.min.css">
+      <link rel="stylesoeet" href="css/owl.theme.default.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+      
+    </head>
+   <body>
+    <style>
+            /* Fait en sorte que le calendrier occupe toute la page */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f0f4f8;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendar {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 90%;
+  max-width: 1200px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: #1976d2;
+  color: white;
+}
+
+.calendar-header button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.calendar-header h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.days-of-week {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  background: #e3f2fd;
+  padding: 10px 0;
+  font-weight: bold;
+  color: #1976d2;
+  border-bottom: 1px solid #ccc;
+}
+
+.days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  flex-grow: 1;
+  padding: 10px;
+  gap: 5px;
+}
+
+.day {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 8px;
+  cursor: pointer;
+  position: relative;
+}
+
+.day:hover {
+  background: #bbdefb;
+}
+
+.day.today {
+  background: #1976d2;
+  color: white;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background: white;
+  margin: 10% auto;
+  padding: 20px;
+  width: 300px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 24px;
+  color: #888;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: black;
+}
+        </style>
+      <!-- header section start -->
+      <div class="header_section header_bg">
+         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a href="index.html" class="logo"><img src="image/nvlogobg.png" style="height: 150px;" ></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                     <a class="nav-link" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="calendrier.html">Calendrier</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="sport.html">Sport</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="profil-client.html">Profil</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="shop.html">Shop</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="news.html">News</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="contact.html">Contact Us</a>
+                  </li>
+               </ul>
+               <form class="form-inline my-2 my-lg-0">
+                  <div class="login_menu">
+                     <ul>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="#"><img src="images/trolly-icon.png"></a></li>
+                     </ul>
+                  </div>
+                  <div></div>
+               </form>
+            </div>
+            <div id="main">
+               <span style="font-size:36px;cursor:pointer; color: #fff" onclick="openNav()"><img src="images/toggle-icon.png" style="height: 30px;"></span>
+            </div>
+         </nav>
+        <div class="calendar">
+  <div class="calendar-header">
+    <button id="prevMonth">&lt;</button>
+    <h2 id="monthYear">Mai 2025</h2>
+    <button id="nextMonth">&gt;</button>
+  </div>
+  <div class="days-of-week">
+    <div>Dim</div><div>Lun</div><div>Mar</div><div>Mer</div><div>Jeu</div><div>Ven</div><div>Sam</div>
+  </div>
+  <div class="days-grid" id="daysGrid">
+    <!-- Jours seront injectés ici par JS -->
+  </div>
+</div>
+
+<script>
+  const daysGrid = document.getElementById('daysGrid');
+  const monthYear = document.getElementById('monthYear');
+  const prevBtn = document.getElementById('prevMonth');
+  const nextBtn = document.getElementById('nextMonth');
+
+  let today = new Date();
+  let currentMonth = today.getMonth();
+  let currentYear = today.getFullYear();
+
+  function renderCalendar(month, year) {
+    daysGrid.innerHTML = '';
+    const firstDay = new Date(year, month, 1);
+    const lastDay = new Date(year, month + 1, 0);
+    const startDayIndex = firstDay.getDay(); // Dim = 0
+    const totalDays = lastDay.getDate();
+
+    // afficher mois et année
+    const monthNames = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+    monthYear.textContent = ${monthNames[month]} ${year};
+
+    // Jours du mois précédent affichés (pour compléter la grille)
+    let prevMonthLastDay = new Date(year, month, 0).getDate();
+
+    // Afficher les jours "hors mois"
+    for(let i = startDayIndex - 1; i >= 0; i--) {
+      const dayDiv = document.createElement('div');
+      dayDiv.classList.add('day', 'outside');
+      dayDiv.textContent = prevMonthLastDay - i;
+      daysGrid.appendChild(dayDiv);
+    }
+
+    // Afficher les jours du mois actuel
+    for(let day = 1; day <= totalDays; day++) {
+      const dayDiv = document.createElement('div');
+      dayDiv.classList.add('day');
+      dayDiv.textContent = day;
+      if(year === today.getFullYear() && month === today.getMonth() && day === today.getDate()){
+        dayDiv.classList.add('today');
+      }
+      daysGrid.appendChild(dayDiv);
+    }
+
+    // Compléter avec les jours du mois suivant pour garder une grille de 42 jours
+    let totalCells = startDayIndex + totalDays;
+    for(let i = 1; totalCells < 42; i++, totalCells++) {
+      const dayDiv = document.createElement('div');
+      dayDiv.classList.add('day', 'outside');
+      dayDiv.textContent = i;
+      daysGrid.appendChild(dayDiv);
+    }
+  }
+
+  prevBtn.addEventListener('click', () => {
+    currentMonth--;
+    if(currentMonth < 0) {
+      currentMonth = 11;
+      currentYear--;
+    }
+    renderCalendar(currentMonth, currentYear);
+  });
+
+  nextBtn.addEventListener('click', () => {
+    currentMonth++;
+    if(currentMonth > 11) {
+      currentMonth = 0;
+      currentYear++;
+    }
+    renderCalendar(currentMonth, currentYear);
+  });
+
+  renderCalendar(currentMonth, currentYear);
+</script>
+ 
+     
+   </body>
+</html>

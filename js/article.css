@@ -1,0 +1,117 @@
+/* ==============================
+  Général : Corps de la page
+============================== */
+body {
+  font-family: 'Segoe UI', sans-serif; /* Police claire et moderne */
+  background-color: #f5f6fa; /* Couleur de fond générale */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Pour centrer la page verticalement */
+  box-sizing: border-box;
+}
+
+/* ==============================
+  Conteneur principal de l'article
+============================== */
+.article-container {
+  max-width: 900px; /* Limite de largeur pour ne pas trop étirer */
+  background-color: white;
+  padding: 40px;
+  margin: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Ombre pour effet de profondeur */
+  border-radius: 20px; /* Coins arrondis */
+  overflow: hidden; /* Evite les débordements */
+}
+
+/* ==============================
+  Titre de l'article
+============================== */
+.article-title {
+  text-align: center; /* Centrer le titre */
+  font-size: 32px; /* Taille du texte */
+  font-weight: bold; /* Gras */
+  margin-bottom: 20px;
+  color: #2f3640; /* Couleur du texte */
+  border-bottom: 2px solid #dcdde1; /* Ligne en bas du titre */
+  padding-bottom: 10px;
+}
+
+/* ==============================
+  Image de l'article
+============================== */
+.article-image {
+  display: block;
+  margin: 0 auto 25px auto; /* Centrer l'image */
+  max-width: 100%; /* L'image ne dépasse pas la largeur de son conteneur */
+  height: auto; /* Laisser l'image ajuster sa hauteur en fonction de la largeur */
+  border-radius: 15px; /* Coins arrondis */
+}
+
+/* ==============================
+  Contenu de l'article
+============================== */
+.article-content {
+  font-size: 18px; /* Taille du texte du contenu */
+  line-height: 1.7; /* Espacement entre les lignes */
+  text-align: justify; /* Justifier le texte pour un aspect propre */
+  color: #353b48; /* Couleur de texte principale */
+}
+
+/* ==============================
+  Liste dans l'article
+============================== */
+.article-content ul {
+  margin-top: 15px;
+  padding-left: 20px; /* Décalage à gauche pour les puces */
+}
+
+.article-content li {
+  margin-bottom: 10px; /* Espacement entre chaque élément */
+}
+
+/* ==============================
+  Texte centré et en gras
+============================== */
+.article-content p {
+  text-align: center; /* Centrer les paragraphes */
+  font-weight: bold; /* Mettre le texte en gras */
+  margin-top: 30px; /* Un peu d'espace avant */
+  color: #2f3640; /* Couleur du texte */
+}
+
+/* ==============================
+  Lien vers les autres articles (Page d'accueil)
+============================== */
+a {
+  display: block;
+  text-align: center;
+  font-size: 18px;
+  color: #3498db;
+  text-decoration: none;
+  margin: 20px 0;
+}
+
+a:hover {
+  color: #2980b9; /* Couleur au survol */
+}
+
+/* ==============================
+  Responsive : Adaptation pour les petits écrans
+============================== */
+@media screen and (max-width: 768px) {
+  .article-container {
+    padding: 20px; /* Moins de padding sur petits écrans */
+    margin: 10px;
+  }
+
+  .article-title {
+    font-size: 28px; /* Un peu plus petit sur mobile */
+  }
+
+  .article-content {
+    font-size: 16px; /* Ajuster la taille du texte */
+  }
+}

@@ -1,0 +1,88 @@
+/* Font & Base */
+body {
+  background-color: #0a0a0a;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+}
+
+/* TITRE de section */
+.section-title {
+  font-size: 2.8rem;
+  color: #ff004f;
+  font-weight: bold;
+  border-bottom: 3px solid #ff004f;
+  display: inline-block;
+  padding-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* News Cards */
+.news-section .card {
+  background: #1a1a1a;
+  border: 2px solid #ff004f;
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.news-section .card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px #ff004f88;
+}
+
+.news-section .card img {
+  height: 220px;
+  object-fit: cover;
+  border-bottom: 2px solid #ff004f;
+}
+
+.card-title {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+
+.post_text {
+  font-size: 0.85rem;
+  color: #aaaaaa;
+  margin-bottom: 8px;
+}
+
+.long_text {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #ddd;
+}
+
+.news-section .btn-primary {
+  background-color: transparent;
+  color: #ff004f;
+  border: 2px solid #ff004f;
+  transition: all 0.3s ease-in-out;
+  font-weight: bold;
+}
+
+.news-section .btn-primary:hover {
+  background-color: #ff004f;
+  color: #fff;
+}
+
+.navbar {
+  background-color: #111;
+  border-bottom: 2px solid #ff004f;
+}
+
+.navbar .nav-link {
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: #ff004f;
+}

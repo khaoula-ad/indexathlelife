@@ -1141,3 +1141,362 @@ textarea#comment::placeholder {
 }
 
 /* contact section end*/
+
+
+/* coach slider */
+
+#my_slider_coach a.carousel-control-prev {
+    left: 640px;
+    top: 93%;
+    background-color: #f7c17b;
+    color: #ffffff;
+}
+
+#my_slider_coach a.carousel-control-next {
+    position: absolute;
+    right: 570px;
+    top: 93%;
+}
+
+#my_slider_coach .carousel-control-prev,
+#my_slider_coach .carousel-control-next {
+    width: 68px;
+    height: 68px;
+    background: #191616;
+    opacity: 1;
+    font-size: 30px;
+    color: #ffffff;
+}
+
+#my_slider_coach .carousel-control-prev:hover,
+#my_slider_coach .carousel-control-next:hover,
+#my_slider_coach .carousel-control-prev:focus,
+#my_slider_coach .carousel-control-next:focus {
+    background-color: #f7c17b;
+    color: #ffffff;
+}
+/*client slider*/
+
+#my_slider_client a.carousel-control-prev {
+    left: 640px;
+    top: 93%;
+    background-color: #f7c17b;
+    color: #ffffff;
+}
+
+#my_slider_client a.carousel-control-next {
+    position: absolute;
+    right: 570px;
+    top: 93%;
+}
+
+#my_slider_client .carousel-control-prev,
+#my_slider_client .carousel-control-next {
+    width: 68px;
+    height: 68px;
+    background: #191616;
+    opacity: 1;
+    font-size: 30px;
+    color: #ffffff;
+}
+
+#my_slider_client .carousel-control-prev:hover,
+#my_slider_client .carousel-control-next:hover,
+#my_slider_client .carousel-control-prev:focus,
+#my_slider_client .carousel-control-next:focus {
+    background-color: #f7c17b;
+    color: #ffffff;
+}
+/* === GLOBAL STYLE === */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f7f9fc;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* === NAVBAR === */
+.navbar {
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-brand img {
+  height: 70px;
+}
+
+.nav-link {
+  font-weight: 600;
+  color: #333;
+  margin-left: 1rem;
+  transition: color 0.3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #0d6efd;
+}
+
+/* === TITRE PRINCIPAL === */
+h2 {
+  font-weight: 700;
+  color: #222;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #0d6efd;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+/* === SECTION NEWS === */
+.card {
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+  background: #ffffff;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.12);
+}
+
+.card-img-top {
+  height: 220px;
+  object-fit: cover;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.card-body {
+  padding: 1.2rem;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0d6efd;
+}
+
+.long_text {
+  color: #555;
+  font-size: 0.95rem;
+  margin: 10px 0 20px;
+}
+
+.post_text {
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+/* === BUTTON === */
+.btn-primary {
+  background-color: #0d6efd;
+  border: none;
+  padding: 10px 20px;
+  font-weight: 600;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #084298;
+  transform: scale(1.05);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .card-img-top {
+    height: 180px;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  .card-title {
+    font-size: 1.1rem;
+  }
+
+  .btn-primary {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}
+.headershop{
+    width: 100%;
+    float: left;
+    background-color: #355764;
+    height: auto;
+    padding-bottom: 90px;
+}
+.mb-4 {
+  font-size: 3rem;             /* Grande taille de police */
+  font-weight: bold;           /* Texte en gras */
+  color: #355764 ;              /* Bleu Bootstrap (ou choisis une couleur) */
+  text-align: center;          /* Centré horizontalement */
+  margin: 40px 0 20px;         /* Espacement haut/bas */
+  position: relative;          /* Nécessaire pour le soulignement décoratif */
+}
+
+.mb-4::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: #ff5b15;  /* Même couleur que le texte */
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* ===== Style pour la page "Créer un compte coach" ===== */
+
+/* Style général de la page */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #e3f2fd);
+  margin: 0;
+  padding: 0;
+}
+
+/* Conteneur du formulaire */
+.form-container {
+  background-color: #ffffff;
+  padding: 30px;
+  max-width: 500px;
+  margin: 50px auto;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Titre */
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #0d47a1;
+}
+
+/* Étiquettes */
+.form-group label {
+  font-weight: 600;
+  color: #0d47a1;
+}
+
+/* Champs de saisie */
+.form-control {
+  border-radius: 8px;
+  border: 1px solid #90caf9;
+  padding: 10px;
+  margin-top: 5px;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #1976d2;
+  box-shadow: 0 0 5px rgba(25, 118, 210, 0.3);
+}
+
+/* Bouton de soumission */
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+button[type="submit"]:hover {
+  background-color: #1565c0;
+}
+/* Style personnalisé pour un lien utilisé comme bouton */
+a.btn {
+  text-align: center;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #1976d2;
+  color: white !important;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+a.btn:hover {
+  background-color: #1565c0;
+  text-decoration: none;
+}
+
+/* Conteneur des deux boutons */
+.centered-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* Centre horizontalement */
+  gap: 15px;            /* Espace entre les boutons */
+  margin-top: 40px;
+}
+
+/* Boutons liens stylisés */
+a.btn {
+  display: block;                 /* Nécessaire pour centrage */
+  width: 200px;                   /* Largeur fixe comme sur l’image */
+  text-align: center;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #1976d2;
+  color: white !important;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+a.btn:hover {
+  background-color: #1565c0;
+  text-decoration: none;
+}
+/profilclient/
+/* Body */
+body {
+  background-color: #f4f4f4;
+  color: #333;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+}
+/profil/
+.profile-info th {
+    background-color: #6c757d;
+    color: white;
+    width: 30%;
+}
+.profile-info th, .profile-info td {
+    padding: 12px;
+    text-align: left;
+    font-size: 1.1em;
+}
+.profile-info {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin: 20px auto; /* Centre la section dans la page */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 800px; /* Vous pouvez ajuster la largeur maximale de la section */
+}
+
+.profile-info h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center; 
+}
+
+
+
