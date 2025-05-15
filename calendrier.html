@@ -1,15 +1,13 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
    <head>
       <!-- basic -->
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="width=device-width, initial-scale=1maximum-scale=1">
       <!-- mobile metas -->
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>calendrier AthleLife</title>
+      <title>AthleLife – Boost Your Balance ⚽📚</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -20,271 +18,358 @@
       <!-- Responsive-->
       <link rel="stylesheet" href="css/responsive.css">
       <!-- fevicon -->
-      <link rel="icon" href="images/fevicon.png" type="image/gif" />
+      <link rel="icon" href="images/fevicon.png" type="image/gif"/>
       <!-- Scrollbar Custom CSS -->
       <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
       <!-- Tweaks for older IEs-->
-      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <!-- owl stylesheets --> 
       <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Raleway:400,700,800&display=swap" rel="stylesheet">
       <link rel="stylesheet" href="css/owl.carousel.min.css">
-      <link rel="stylesoeet" href="css/owl.theme.default.min.css">
+      <link rel="stylesheet" href="css/owl.theme.default.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
-      
-    </head>
+      <style>
+        /* ton CSS inchangé, je le laisse tel quel */
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: 'Segoe UI', sans-serif;
+        }
+        body {
+          height: 100vh;
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+        }
+        header h1 {
+          font-size: 1.5rem;
+        }
+        .nav-buttons button {
+          font-size: 1.2rem;
+          padding: 0.4rem 0.8rem;
+          margin-left: 0.5rem;
+          border: 1px solid #aaa9eb;
+          background: rgb(176, 145, 250);
+          cursor: pointer;
+          border-radius: 5px;
+        }
+        main {
+          flex-grow: 1;
+          display: flex;
+          justify-content: center;
+          padding: 1rem;
+          background: #faf8fc;
+        }
+        .calendar {
+          width: 100%;
+          max-width: 1000px;
+        }
+        .day-names,
+        .calendar-days {
+          display: grid;
+          grid-template-columns: repeat(7, 1fr);
+        }
+        .day-names div {
+          text-align: center;
+          padding: 0.8rem 0;
+          background: #c2d0e9;
+          font-weight: bold;
+          border-bottom: 1px solid #5e5b85;
+        }
+        .calendar-days div {
+          border: 1px solid #dad9e0;
+          height: 100px;
+          padding: 5px;
+          position: relative;
+        }
+        .calendar-days div span {
+          position: absolute;
+          top: 5px;
+          left: 5px;
+          font-size: 0.9rem;
+        }
+        .today {
+          background: #bdd8e4;
+          border: 2px solid #1890ff;
+        }
+        .event {
+          background-color: #bcbccc;
+          color: white;
+          padding: 2px 4px;
+          font-size: 0.8rem;
+          border-radius: 4px;
+          position: absolute;
+          bottom: 5px;
+          left: 5px;
+        }
+        /* Style lien comme bouton */
+        .btn-link {
+          display: inline-block;
+          background-color: #9fcce0;
+          color: white;
+          padding: 12px 24px;
+          border-radius: 6px;
+          text-decoration: none;
+          font-size: 16px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+        }
+        .btn-link:hover {
+          background-color: #084156;
+        }
+        /* Modale */
+        .modal {
+          display: none;
+          position: fixed;
+          z-index: 1000;
+          left: 0; top: 0;
+          width: 100%; height: 100%;
+          background-color: rgba(252, 252, 252, 0.5);
+        }
+        /* Contenu modale */
+        .modal-content {
+          background-color: #fff;
+          margin: 10% auto;
+          padding: 25px;
+          width: 90%;
+          max-width: 500px;
+          border-radius: 8px;
+          position: relative;
+        }
+        /* Bouton fermer */
+        .close-btn {
+          position: absolute;
+          top: 10px; right: 15px;
+          font-size: 22px;
+          cursor: pointer;
+        }
+        /* Champs formulaire */
+        .modal-content label {
+          display: block;
+          margin-top: 12px;
+          font-weight: bold;
+        }
+        .modal-content input,
+        .modal-content textarea {
+          width: 100%;
+          padding: 8px;
+          margin-top: 6px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+        }
+        /* Bouton Enregistrer */
+        .btn-submit {
+          margin-top: 20px;
+          width: 100%;
+          padding: 12px;
+          background-color: #0e2f3e;
+          color: white;
+          border: none;
+          border-radius: 6px;
+          cursor: pointer;
+          font-size: 16px;
+        }
+        .btn-submit:hover {
+          background-color: #084156;
+        }
+        .task-title {
+          background-color: #363838;
+          color: white;
+          padding: 2px 6px;
+          margin-top: 4px;
+          font-size: 12px;
+          border-radius: 4px;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          position: absolute;
+          bottom: 5px;
+          left: 5px;
+          right: 5px;
+        }
+      </style>
+   </head>
    <body>
-    <style>
-            /* Fait en sorte que le calendrier occupe toute la page */
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  font-family: 'Segoe UI', sans-serif;
-  background: #f0f4f8;
-}
-
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.calendar {
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-  height: 90%;
-  max-width: 1200px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-}
-
-.calendar-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  background: #1976d2;
-  color: white;
-}
-
-.calendar-header button {
-  background: transparent;
-  border: none;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.calendar-header h2 {
-  margin: 0;
-  font-size: 24px;
-}
-
-.days-of-week {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  text-align: center;
-  background: #e3f2fd;
-  padding: 10px 0;
-  font-weight: bold;
-  color: #1976d2;
-  border-bottom: 1px solid #ccc;
-}
-
-.days-grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  flex-grow: 1;
-  padding: 10px;
-  gap: 5px;
-}
-
-.day {
-  background: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 8px;
-  cursor: pointer;
-  position: relative;
-}
-
-.day:hover {
-  background: #bbdefb;
-}
-
-.day.today {
-  background: #1976d2;
-  color: white;
-}
-
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal-content {
-  background: white;
-  margin: 10% auto;
-  padding: 20px;
-  width: 300px;
-  border-radius: 10px;
-  position: relative;
-}
-
-.close {
-  position: absolute;
-  right: 15px;
-  top: 10px;
-  font-size: 24px;
-  color: #888;
-  cursor: pointer;
-}
-
-.close:hover {
-  color: black;
-}
-        </style>
-      <!-- header section start -->
-      <div class="header_section header_bg">
-         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a href="index.html" class="logo"><img src="image/nvlogobg.png" style="height: 150px;" ></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+      <header class="headershop">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+          <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+              <img src="image/nvlogobg.png" alt="Logo" style="height: 150px;" class="me-2">
+            </a>
+            <!-- Toggler -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-               <ul class="navbar-nav mr-auto">
-                  <li class="nav-item active">
-                     <a class="nav-link" href="index.html">Home</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="calendrier.html">Calendrier</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="sport.html">Sport</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="profil-client.html">Profil</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="shop.html">Shop</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="news.html">News</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="contact.html">Contact Us</a>
-                  </li>
-               </ul>
-               <form class="form-inline my-2 my-lg-0">
-                  <div class="login_menu">
-                     <ul>
-                        <li><a href="login.html">Login</a></li>
-                        <li><a href="#"><img src="images/trolly-icon.png"></a></li>
-                     </ul>
-                  </div>
-                  <div></div>
-               </form>
+            <!-- Nav links + login/cart -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+                <li class="nav-item"><a class="nav-link" href="calendrier.html">Calendrier</a></li>
+                <li class="nav-item"><a class="nav-link" href="sport.html">Sport</a></li>
+                <li class="nav-item"><a class="nav-link active" href="shop.html">Shop</a></li>
+                <li class="nav-item"><a class="nav-link" href="news.html">News</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="compte.html">Compte</a></li>
+                <li class="nav-item d-flex align-items-center">
+                  <a class="nav-link" href="login.html">Login</a>
+                  <a class="nav-link ps-2" href="panier.html"><img src="images/trolly-icon.png" alt="Cart" style="height: 24px;"></a>
+                </li>
+              </ul>
             </div>
-            <div id="main">
-               <span style="font-size:36px;cursor:pointer; color: #fff" onclick="openNav()"><img src="images/toggle-icon.png" style="height: 30px;"></span>
-            </div>
-         </nav>
+          </div>
+        </nav>
+      </header>
+      <!--calendrier-->
+      <div class="header">
+          <h1 id="monthYear">Juillet 2025</h1>
+          <div class="nav-buttons">
+            <button id="prevMonth">&lt;</button>
+            <button id="nextMonth">&gt;</button>
+          </div>
+      </div>
+      <main>
         <div class="calendar">
-  <div class="calendar-header">
-    <button id="prevMonth">&lt;</button>
-    <h2 id="monthYear">Mai 2025</h2>
-    <button id="nextMonth">&gt;</button>
-  </div>
-  <div class="days-of-week">
-    <div>Dim</div><div>Lun</div><div>Mar</div><div>Mer</div><div>Jeu</div><div>Ven</div><div>Sam</div>
-  </div>
-  <div class="days-grid" id="daysGrid">
-    <!-- Jours seront injectés ici par JS -->
-  </div>
+          <div class="day-names">
+            <div>Dim</div><div>Lun</div><div>Mar</div><div>Mer</div><div>Jeu</div><div>Ven</div><div>Sam</div>
+          </div>
+          <div id="calendarDays" class="calendar-days"></div>
+        </div>
+      </main>
+      <!-- Lien "Créer un compte" stylé bouton -->
+      <a href="#" id="openModalLink" class="btn-link">Créer un compte</a>
+      <!-- Modale -->
+      <div id="planningModal" class="modal">
+        <div class="modal-content">
+          <span class="close-btn" id="closeModalBtn">&times;</span>
+          <h2>Créer une nouvelle tâche</h2>
+          <form id="planningForm" method="post" action="ajouter_tache.php">
+            <label for="titre">Titre de la tâche :</label>
+            <input type="text" id="titre" name="titre" required />
+            <label for="date">Date :</label>
+            <input type="date" id="date" name="date" required />
+            <label for="heure">Heure :</label>
+            <input type="time" id="heure" name="heure" required />
+            <label for="description">Description :</label>
+            <input type="text" id="description" name="description" required />
+            <button type="submit" class="btn-submit">Enregistrer</button>
+</form>
 </div>
-
+</div>
 <script>
-  const daysGrid = document.getElementById('daysGrid');
-  const monthYear = document.getElementById('monthYear');
-  const prevBtn = document.getElementById('prevMonth');
-  const nextBtn = document.getElementById('nextMonth');
-
-  let today = new Date();
-  let currentMonth = today.getMonth();
-  let currentYear = today.getFullYear();
-
-  function renderCalendar(month, year) {
-    daysGrid.innerHTML = '';
-    const firstDay = new Date(year, month, 1);
-    const lastDay = new Date(year, month + 1, 0);
-    const startDayIndex = firstDay.getDay(); // Dim = 0
-    const totalDays = lastDay.getDate();
-
-    // afficher mois et année
-    const monthNames = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
-    monthYear.textContent = ${monthNames[month]} ${year};
-
-    // Jours du mois précédent affichés (pour compléter la grille)
-    let prevMonthLastDay = new Date(year, month, 0).getDate();
-
-    // Afficher les jours "hors mois"
-    for(let i = startDayIndex - 1; i >= 0; i--) {
-      const dayDiv = document.createElement('div');
-      dayDiv.classList.add('day', 'outside');
-      dayDiv.textContent = prevMonthLastDay - i;
-      daysGrid.appendChild(dayDiv);
+const monthNames = [
+"Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
+"Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"
+];
+const dayNames = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];
+const calendarDays = document.getElementById("calendarDays");
+const monthYear = document.getElementById("monthYear");
+let currentDate = new Date();
+    // format date en yyyy-mm-dd pour correspondance
+    function formatDate(date) {
+      const y = date.getFullYear();
+      const m = String(date.getMonth() + 1).padStart(2, "0");
+      const d = String(date.getDate()).padStart(2, "0");
+      return `${y}-${m}-${d}`;
     }
 
-    // Afficher les jours du mois actuel
-    for(let day = 1; day <= totalDays; day++) {
-      const dayDiv = document.createElement('div');
-      dayDiv.classList.add('day');
-      dayDiv.textContent = day;
-      if(year === today.getFullYear() && month === today.getMonth() && day === today.getDate()){
-        dayDiv.classList.add('today');
+    // Affiche le calendrier du mois donné
+    function renderCalendar(year, month) {
+      calendarDays.innerHTML = "";
+
+      // premier jour du mois (0=Dimanche..6=Samedi)
+      const firstDay = new Date(year, month, 1).getDay();
+      // nombre de jours dans le mois
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+      // Affiche les jours vides avant le 1er du mois (lundi = 1)
+      // Dans ton calendrier les jours sont Dim=0, Lun=1...
+      for (let i = 0; i < firstDay; i++) {
+        const emptyCell = document.createElement("div");
+        calendarDays.appendChild(emptyCell);
       }
-      daysGrid.appendChild(dayDiv);
+
+      for (let d = 1; d <= daysInMonth; d++) {
+        const cell = document.createElement("div");
+        const span = document.createElement("span");
+        span.textContent = d;
+        cell.appendChild(span);
+
+        // Ajout de data-date pour permettre la sélection plus tard
+        const dateStr = `${year}-${String(month + 1).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
+        cell.setAttribute("data-date", dateStr);
+
+        if (formatDate(new Date()) === dateStr) {
+          cell.classList.add("today");
+        }
+
+        calendarDays.appendChild(cell);
+      }
+
+      monthYear.textContent = `${monthNames[month]} ${year}`;
     }
 
-    // Compléter avec les jours du mois suivant pour garder une grille de 42 jours
-    let totalCells = startDayIndex + totalDays;
-    for(let i = 1; totalCells < 42; i++, totalCells++) {
-      const dayDiv = document.createElement('div');
-      dayDiv.classList.add('day', 'outside');
-      dayDiv.textContent = i;
-      daysGrid.appendChild(dayDiv);
-    }
-  }
+    renderCalendar(currentDate.getFullYear(), currentDate.getMonth());
 
-  prevBtn.addEventListener('click', () => {
-    currentMonth--;
-    if(currentMonth < 0) {
-      currentMonth = 11;
-      currentYear--;
-    }
-    renderCalendar(currentMonth, currentYear);
-  });
+    document.getElementById("prevMonth").addEventListener("click", () => {
+      currentDate.setMonth(currentDate.getMonth() - 1);
+      renderCalendar(currentDate.getFullYear(), currentDate.getMonth());
+    });
 
-  nextBtn.addEventListener('click', () => {
-    currentMonth++;
-    if(currentMonth > 11) {
-      currentMonth = 0;
-      currentYear++;
-    }
-    renderCalendar(currentMonth, currentYear);
-  });
+    document.getElementById("nextMonth").addEventListener("click", () => {
+      currentDate.setMonth(currentDate.getMonth() + 1);
+      renderCalendar(currentDate.getFullYear(), currentDate.getMonth());
+    });
 
-  renderCalendar(currentMonth, currentYear);
-</script>
- 
-     
-   </body>
+    // Gestion modale
+    const modal = document.getElementById("planningModal");
+    const openModalLink = document.getElementById("openModalLink");
+    const closeModalBtn = document.getElementById("closeModalBtn");
+
+    openModalLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      modal.style.display = "block";
+    });
+
+    closeModalBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+
+    window.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+
+    // Ajout de la tâche dans le calendrier à la validation du formulaire
+    const planningForm = document.getElementById("planningForm");
+
+    planningForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const titre = document.getElementById("titre").value;
+      const date = document.getElementById("date").value;
+
+      // Trouve la case calendrier correspondante au date
+      const dayCell = document.querySelector(`.calendar-days div[data-date="${date}"]`);
+
+      if (dayCell) {
+        // Crée une div avec la tâche
+        const taskDiv = document.createElement("div");
+        taskDiv.classList.add("task-title");
+        taskDiv.textContent = titre;
+
+        dayCell.appendChild(taskDiv);
+      } else {
+        alert("La date sélectionnée n'est pas visible dans le calendrier.");
+      }
+
+      // Fermer modale et réinitialiser
+      modal.style.display = "none";
+      planningForm.reset();
+    });
+  </script>
+</body>
 </html>

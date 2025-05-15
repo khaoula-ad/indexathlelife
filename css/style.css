@@ -1463,7 +1463,7 @@ a.btn:hover {
   background-color: #1565c0;
   text-decoration: none;
 }
-/profilclient/
+/*profilclient/
 /* Body */
 body {
   background-color: #f4f4f4;
@@ -1471,7 +1471,7 @@ body {
   font-family: 'Poppins', sans-serif;
   line-height: 1.6;
 }
-/profil/
+/*profil*/
 .profile-info th {
     background-color: #6c757d;
     color: white;
@@ -1497,6 +1497,28 @@ body {
     margin-bottom: 15px;
     text-align: center; 
 }
+.orange-btn {
+	background-color: #FFA500; /* orange */
+	color: white;
+	border: none;
+	padding: 12px 24px;
+	font-size: 16px;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+.orange-btn:hover {
+	background-color: #e69500; /* orange foncé */
+}
+.leg-press-title {
+	font-weight: bold;         /* en gras */
+	font-size: 22px;           /* plus grand (tu peux ajuster) */
+	text-decoration: underline; /* souligné */
+	color: #333;               /* optionnel, couleur foncée lisible */
+	margin-bottom: 10px;       /* espacement si nécessaire */
+}
+
 
 
 
