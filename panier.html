@@ -30,182 +30,373 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
       <meta name="keywords" content="sport, nutrition, calendrier, football, organisation, entraînement">
 <meta name="description" content="AthleLife vous aide à équilibrer sport, études et nutrition avec des outils simples et efficaces.">
+      <style>
+         body {
+            background-color: #f8f9fa;
+            color: #333;
+         }
+         .image-prod img {
+            max-width: 100px;
+            height: auto;
+            object-fit: cover;
+         }
+         .quantity input {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 0 10px;
+         }
+         .quantity .btn {
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            padding: 0 10px;
+         }
+         .quantity .btn:hover {
+            background-color: #0056b3;
+         }
+         .bg-light {
+            background-color: #355764 !important;
+         }
+         .headershop {
+            background-color: #355764;
+            box-shadow: 0 2px 4px rgba(0,0,0,.1);
+         }
+         .navbar {
+            padding: 1rem 0;
+         }
+         .navbar-brand {
+            padding: 0;
+         }
+         .cart-table {
+            background-color: #fff;
+            border: none;
+            margin-bottom: 30px;
+         }
+         .cart-table th,
+         .cart-table td {
+            border: 1px solid #dee2e6;
+            padding: 15px;
+            vertical-align: middle;
+         }
+         .cart-table th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+         }
+         .cart-summary {
+            background-color: #fff;
+            border: none;
+            padding: 20px;
+         }
+      </style>
+      <script>
+         document.addEventListener('DOMContentLoaded', function() {
+            const quantityInputs = document.querySelectorAll('.quantity input');
+            const minusButtons = document.querySelectorAll('.btn-minus');
+            const plusButtons = document.querySelectorAll('.btn-plus');
 
-   </head>
-   <!DOCTYPE html>
-<html lang="en">
-   <head>
-      <!-- basic -->
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-      <!-- mobile metas -->
-      <!-- site metas -->
-      <title>AthleLife – Boost Your Balance ⚽📚</title>
-      <meta name="keywords" content="">
-      <meta name="description" content="">
-      <meta name="author" content="">
-      <!-- bootstrap css -->
-      <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-      <!-- style css -->
-      <link rel="stylesheet" type="text/css" href="css/style.css">
-      <!-- Responsive-->
-      <link rel="stylesheet" href="css/responsive.css">
-      <!-- fevicon -->
-      <link rel="icon" href="images/fevicon.png" type="image/gif"/>
-      <!-- Scrollbar Custom CSS -->
-      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-      <!-- Tweaks for older IEs-->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      <!-- owl stylesheets --> 
-      <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Raleway:400,700,800&display=swap" rel="stylesheet">
-      <link rel="stylesheet" href="css/owl.carousel.min.css">
-      <link rel="stylesheet" href="css/owl.theme.default.min.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
-      <meta name="keywords" content="sport, nutrition, calendrier, football, organisation, entraînement">
-<meta name="description" content="AthleLife vous aide à équilibrer sport, études et nutrition avec des outils simples et efficaces.">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    .container {
-      max-width: 700px;
-      margin-top: 50px;
-    }
-    .form-control {
-      margin-bottom: 15px;
-    }
-    .section-title {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-  </style>
+            minusButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const input = this.closest('.quantity').querySelector('input');
+                    let value = parseInt(input.value);
+                    if (value > 1) {
+                        value--;
+                        input.value = value;
+                        updateTotal(input.closest('tr'));
+                    }
+                });
+            });
+
+            plusButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    changeQuantity(button, 1);
+                });
+            });
+
+            function changeQuantity(button, amount) {
+                const input = button.parentElement.querySelector('input');
+                const newQuantity = parseInt(input.value) + amount;
+                if (newQuantity >= 1) {
+                    input.value = newQuantity;
+                    updateTotal(button.closest('tr'));
+                }
+            }
+
+            function updateTotal(row) {
+                const price = parseFloat(row.querySelector('.price').textContent.replace('$', ''));
+                const quantity = parseInt(row.querySelector('.quantity input').value);
+                const total = price * quantity;
+                row.querySelector('.total').textContent = `$${total.toFixed(2)}`;
+                updateGrandTotal();
+            }
+
+            function updateGrandTotal() {
+                let total = 0;
+                document.querySelectorAll('.total').forEach(element => {
+                    total += parseFloat(element.textContent.replace('$', ''));
+                });
+                document.querySelector('.subtotal').textContent = `$${total.toFixed(2)}`;
+                document.querySelector('.total-amount').textContent = `$${total.toFixed(2)}`;
+            }
+
+            function removeItem(button) {
+                button.closest('tr').remove();
+                updateGrandTotal();
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+                document.querySelectorAll('.quantity input').forEach(input => {
+                    updateTotal(input.closest('tr'));
+                });
+            });
+         });
+      </script>
+
    </head>
    <body>
       <header class="headershop">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-    <div class="container">
-      <!-- Logo -->
-      <a class="navbar-brand d-flex align-items-center" href="index.html">
-        <img src="image/nvlogobg.png" alt="Logo" style="height: 150px;" class="me-2">
-      </a>
+   <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+     <div class="container">
+       <!-- Logo -->
+       <a class="navbar-brand d-flex align-items-center" href="index.html">
+         <img src="image/nvlogobg.png" alt="Logo" style="height: 150px;" class="me-2">
+       </a>
 
-      <!-- Toggler -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+       <!-- Toggler -->
+       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+       </button>
 
-      <!-- Nav links + login/cart -->
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
-          <li class="nav-item"><a class="nav-link" href="calendrier.html">Calendrier</a></li>
-          <li class="nav-item"><a class="nav-link" href="sport.html">Sport</a></li>
-          <li class="nav-item"><a class="nav-link active" href="shop.html">Shop</a></li>
-          <li class="nav-item"><a class="nav-link" href="news.html">News</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-          <li class="nav-item"><a class="nav-link" href="compte.html">Compte</a></li>
-          <li class="nav-item d-flex align-items-center">
-            <a class="nav-link" href="login.html">Login</a>
-            <a class="nav-link ps-2" href="panier.html"><img src="images/trolly-icon.png" alt="Cart" style="height: 24px;"></a>
-          </li>
-        </ul>
+       <!-- Nav links + login/cart -->
+       <div class="collapse navbar-collapse" id="navbarNav">
+         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+           <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+           <li class="nav-item"><a class="nav-link" href="calendrier.html">Calendrier</a></li>
+           <li class="nav-item"><a class="nav-link" href="sport.html">Sport</a></li>
+           <li class="nav-item"><a class="nav-link active" href="shop.html">Shop</a></li>
+           <li class="nav-item"><a class="nav-link" href="news.html">News</a></li>
+           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+           <li class="nav-item"><a class="nav-link" href="compte.html">Compte</a></li>
+           <li class="nav-item d-flex align-items-center">
+             <a class="nav-link" href="login.html">Login</a>
+             <a class="nav-link ps-2" href="panier.html"><img src="images/trolly-icon.png" alt="Cart" style="height: 24px;"></a>
+           </li>
+         </ul>
+
+   </nav>
+</header>
+
+<!-- Début panier -->
+<section class="cart-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card h-100">
+          <div class="card-body">
+            <h2 class="mb-4">🛒 Votre Panier</h2>
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead class="bg-light">
+                  <tr>
+                    <th>Produit</th>
+                    <th>Prix</th>
+                    <th>Quantité</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <img src="image/mat2webp.png" alt="Leg Press Machine" style="width: 50px; height: 50px; margin-right: 10px;">
+                        <div>
+                          <h6>Leg Press Machine</h6>
+                          <small>$500</small>
+                        </div>
+                      </div>
+                    </td>
+                    <td>$500</td>
+                    <td>
+                      <div class="quantity">
+                        <button class="btn" onclick="changeQuantity(this, -1)">-</button>
+                        <input type="number" value="1" min="1" style="width: 60px;" onchange="updateTotal(this.closest('tr'))">
+                        <button class="btn" onclick="changeQuantity(this, 1)">+</button>
+                      </div>
+                    </td>
+                    <td class="total">$500</td>
+                    <td>
+                      <button class="btn btn-danger" onclick="removeItem(this)">×</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <img src="image/vetwebp.png" alt="Nike Sportswear" style="width: 50px; height: 50px; margin-right: 10px;">
+                        <div>
+                          <h6>Nike Sportswear</h6>
+                          <small>$40</small>
+                        </div>
+                      </div>
+                    </td>
+                    <td>$40</td>
+                    <td>
+                      <div class="quantity">
+                        <button class="btn" onclick="changeQuantity(this, -1)">-</button>
+                        <input type="number" value="1" min="1" style="width: 60px;" onchange="updateTotal(this.closest('tr'))">
+                        <button class="btn" onclick="changeQuantity(this, 1)">+</button>
+                      </div>
+                    </td>
+                    <td class="total">$40</td>
+                    <td>
+                      <button class="btn btn-danger" onclick="removeItem(this)">×</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <img src="image/comp.webp" alt="Multivitamines" style="width: 50px; height: 50px; margin-right: 10px;">
+                        <div>
+                          <h6>Multivitamines</h6>
+                          <small>$20</small>
+                        </div>
+                      </div>
+                    </td>
+                    <td>$20</td>
+                    <td>
+                      <div class="quantity">
+                        <button class="btn" onclick="changeQuantity(this, -1)">-</button>
+                        <input type="number" value="1" min="1" style="width: 60px;" onchange="updateTotal(this.closest('tr'))">
+                        <button class="btn" onclick="changeQuantity(this, 1)">+</button>
+                      </div>
+                    </td>
+                    <td class="total">$20</td>
+                    <td>
+                      <button class="btn btn-danger" onclick="removeItem(this)">×</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h4 class="mb-4">Résumé du Panier</h4>
+            <div class="d-flex justify-content-between mb-3">
+              <h6 class="font-weight-medium">Sous-total</h6>
+              <h6 class="font-weight-medium subtotal">$560</h6>
+            </div>
+            <div class="d-flex justify-content-between mb-3">
+              <h6 class="font-weight-medium">Livraison</h6>
+              <h6 class="font-weight-medium">$0</h6>
+            </div>
+            <div class="d-flex justify-content-between mb-3">
+              <h6 class="font-weight-medium">Total</h6>
+              <h6 class="font-weight-medium total-amount">$560</h6>
+            </div>
+            <button class="btn btn-block btn-primary font-weight-bold py-3">Acheter</button>
+          </div>
+        </div>
       </div>
     </div>
-  </nav>
-</header>
-      <!-- panier -->
-	<div class="cart-section mt-150 mb-150">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-md-12">
-					<div class="cart-table-wrap">
-						<table class="cart-table">
-							<thead class="cart-table-head">
-								<tr class="table-head-row">
-									<th class="product-remove"></th>
-									<th class="product-image">Product Image</th>
-									<th class="product-name">Name</th>
-									<th class="product-price">Price</th>
-									<th class="product-quantity">Quantity</th>
-									<th class="product-total">Total</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr class="table-body-row">
-									<td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
-									<td class="product-image"><img src="assets/img/products/product-img-1.jpg" alt=""></td>
-									<td class="product-name">Strawberry</td>
-									<td class="product-price">$85</td>
-									<td class="product-quantity"><input type="number" placeholder="0"></td>
-									<td class="product-total">1</td>
-								</tr>
-								<tr class="table-body-row">
-									<td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
-									<td class="product-image"><img src="assets/img/products/product-img-2.jpg" alt=""></td>
-									<td class="product-name">Berry</td>
-									<td class="product-price">$70</td>
-									<td class="product-quantity"><input type="number" placeholder="0"></td>
-									<td class="product-total">1</td>
-								</tr>
-								<tr class="table-body-row">
-									<td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
-									<td class="product-image"><img src="assets/img/products/product-img-3.jpg" alt=""></td>
-									<td class="product-name">Lemon</td>
-									<td class="product-price">$35</td>
-									<td class="product-quantity"><input type="number" placeholder="0"></td>
-									<td class="product-total">1</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
+  </div>
+</section>
+<!-- Fin panier -->
 
-				<div class="col-lg-4">
-					<div class="total-section">
-						<table class="total-table">
-							<thead class="total-table-head">
-								<tr class="table-total-row">
-									<th>Total</th>
-									<th>Price</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr class="total-data">
-									<td><strong>Subtotal: </strong></td>
-									<td>$500</td>
-								</tr>
-								<tr class="total-data">
-									<td><strong>Shipping: </strong></td>
-									<td>$45</td>
-								</tr>
-								<tr class="total-data">
-									<td><strong>Total: </strong></td>
-									<td>$545</td>
-								</tr>
-							</tbody>
-						</table>
-						<div class="cart-buttons">
-							<a href="cart.html" class="boxed-btn">Update Cart</a>
-							<a href="checkout.html" class="boxed-btn black">Check Out</a>
-						</div>
-					</div>
+<script>
+    // Initialiser les totaux au chargement
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialiser les totaux
+        updateAllTotals();
+    });
 
-					<div class="coupon-section">
-						<h3>Apply Coupon</h3>
-						<div class="coupon-form-wrap">
-							<form action="index.html">
-								<p><input type="text" placeholder="Coupon"></p>
-								<p><input type="submit" value="Apply"></p>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end panier -->
-      <!-- contact section start -->
+    function updateAllTotals() {
+        // Mettre à jour les totaux de chaque ligne
+        document.querySelectorAll('.quantity input').forEach(input => {
+            const row = input.closest('tr');
+            const price = parseFloat(row.querySelector('.price').textContent.replace('$', ''));
+            const quantity = parseInt(input.value);
+            const total = price * quantity;
+            row.querySelector('.total').textContent = `$${total.toFixed(2)}`;
+        });
+        // Mettre à jour le total général
+        updateGrandTotal();
+    }
+
+// Supprimé car plus utilisé
+    // function changeQuantity(button, amount) {
+    //     const input = button.parentElement.querySelector('input');
+    //     let value = parseInt(input.value);
+    //     
+    //     // Vérifier les limites
+    //     if ((amount === -1 && value > 1) || (amount === 1 && value < 100)) {
+    //         value = value + amount;  // Ajouter ou retirer 1 unité
+    //         input.value = value;
+    //         updateTotal(button.closest('tr'));
+    //     }
+    // }
+
+    function updateTotal(row) {
+        // Récupérer le prix de base (dans la colonne Prix)
+        const priceCell = row.querySelector('td:nth-child(2)');
+        const price = parseFloat(priceCell.textContent.replace('$', ''));
+        
+        // Récupérer la quantité
+        const quantity = parseInt(row.querySelector('.quantity input').value);
+        
+        // Calculer le total
+        const total = price * quantity;
+        
+        // Mettre à jour le total dans la colonne Total
+        const totalCell = row.querySelector('td:nth-child(4)');
+        totalCell.textContent = `$${total.toFixed(2)}`;
+        
+        // Mettre à jour le total général
+        updateGrandTotal();
+    }
+
+    function updateGrandTotal() {
+        let total = 0;
+        document.querySelectorAll('.total').forEach(element => {
+            total += parseFloat(element.textContent.replace('$', ''));
+        });
+        document.querySelector('.subtotal').textContent = `$${total.toFixed(2)}`;
+        document.querySelector('.total-amount').textContent = `$${total.toFixed(2)}`;
+    }
+
+    function removeItem(button) {
+        button.closest('tr').remove();
+        updateGrandTotal();
+    }
+
+    // Écouter les changements de quantité
+    document.querySelectorAll('.quantity input').forEach(input => {
+        input.addEventListener('change', function() {
+            updateTotal(this.closest('tr'));
+        });
+    });
+
+    // Écouter les clics sur les boutons + et -
+    document.querySelectorAll('.quantity .btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const input = this.parentElement.querySelector('input');
+            let value = parseInt(input.value);
+            const amount = this.textContent === '+' ? 1 : -1;
+            if ((amount === -1 && value > 1) || (amount === 1 && value < 100)) {
+                value += amount;
+                input.value = value;
+                updateTotal(this.closest('tr'));
+            }
+        });
+    });
+</script>
+<!-- Fin panier -->
+
+<!-- contact section start -->
       <div class="contact_section layout_padding">
          <div class="container">
             <div class="contact_main">
@@ -221,7 +412,7 @@
                      <input type="text" class="email-bt" placeholder="Phone Numbar" name="Email">
                   </div>
                   <div class="form-group">
-                     <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="Massage"></textarea>
+                     <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="Message"></textarea>
                   </div>
                </form>
                <div class="send_btn"><a href="#">SEND</a></div>
