@@ -68,8 +68,23 @@
   </nav>
 </header>
 
-      <!-- Section Football -->
-<div class="container py-5">
+<!-- Filtres -->
+<div class="container py-4">
+   <div class="row">
+      <div class="col-12">
+         <div class="filter-group">
+            <div class="btn-group-vertical w-100" role="group">
+               <button type="button" class="btn btn-outline-info filter-btn active" data-filter="all">Tous</button>
+               <button type="button" class="btn btn-outline-info filter-btn" data-filter="football">Football</button>
+               <button type="button" class="btn btn-outline-info filter-btn" data-filter="gym">Gym</button>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+<!-- Section Football -->
+<div class="container py-5" id="section-football">
    <div class="row">
       <div class="col-12">
          <div class="titlepage">
@@ -77,8 +92,6 @@
             <p class="text-center mb-4">Découvrez nos formations de football pour tous les niveaux, de l'initiation aux techniques avancées. Des entraînements spécifiques pour développer vos compétences et atteindre vos objectifs.</p>
          </div>
       </div>
-   </div>
-</div>
 
 <!-- Formations Football -->
 <div class="container">
@@ -94,7 +107,6 @@
                      <div class="formation-filters">
                         <span class="badge bg-success">Gratuite</span>
                         <span class="badge bg-warning">Débutant</span>
-                        <span class="badge bg-info">Football</span>
                      </div>
                      <div class="price-tag free">0 $</div>
                      <button class="btn btn-primary" onclick="ouvrirModalPaiement('football-initiation')">S'inscrire</button>
@@ -115,7 +127,6 @@
                      <div class="formation-filters">
                         <span class="badge bg-primary">Payante</span>
                         <span class="badge bg-info">Intermédiaire</span>
-                        <span class="badge bg-info">Football</span>
                      </div>
                      <div class="price-tag">300€</div>
                      <button class="btn btn-primary" onclick="ouvrirModalPaiement('football-intermediaire')">S'inscrire</button>
@@ -136,7 +147,6 @@
                      <div class="formation-filters">
                         <span class="badge bg-primary">Payante</span>
                         <span class="badge bg-success">Avancé</span>
-                        <span class="badge bg-info">Football</span>
                      </div>
                      <div class="price-tag">500€</div>
                      <button class="btn btn-primary" onclick="ouvrirModalPaiement('football-avance')">S'inscrire</button>
@@ -157,7 +167,6 @@
                      <div class="formation-filters">
                         <span class="badge bg-primary">Payante</span>
                         <span class="badge bg-success">Expert</span>
-                        <span class="badge bg-info">Football</span>
                      </div>
                      <div class="price-tag">800€</div>
                      <button class="btn btn-primary" onclick="ouvrirModalPaiement('football-expert')">S'inscrire</button>
@@ -168,6 +177,331 @@
       </div>
    </div>
 </div>
+
+<!-- Section Coachs Football -->
+<div class="container py-5" id="coachs-football">
+   <div class="row">
+      <div class="col-12">
+         <div class="titlepage">
+            <h2>Coachs Football</h2>
+            <span>Nos coachs experts en football</span>
+         </div>
+      </div>
+   </div>
+   <div class="row mt-5">
+      <div class="col-12">
+         <h3 class="mb-4">Nos Coachs</h3>
+      </div>
+      <!-- Coach Flick -->
+      <div class="col-md-4 mb-4">
+         <div class="coach-card">
+            <img src="image/flick.webp" alt="Coach Hansi Flick" class="coach-image">
+            <div class="coach-info">
+               <h5 class="coach-name">Hansi Flick</h5>
+               <p class="coach-description">Ancien entraîneur du Bayern Munich et de l'équipe d'Allemagne</p>
+               <div class="coach-contact">
+                  <center><a href="cv-coach.html" class="btn btn-primary">voir CV</a></center>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- Coach Ancelotti -->
+      <div class="col-md-4 mb-4">
+         <div class="coach-card">
+            <img src="image/anchelloti.jpeg" alt="Coach Carlo Ancelotti" class="coach-image coach-image-anchelotti">
+            <div class="coach-info">
+               <h5 class="coach-name">Carlo Ancelotti</h5>
+               <p class="coach-description">Entraîneur de légende avec des succès en Europe et en Amérique</p>
+               <div class="coach-contact">
+                  <center><a href="cv-coach.html" class="btn btn-primary">voir CV</a></center>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- Coach Guardiola -->
+      <div class="col-md-4 mb-4">
+         <div class="coach-card">
+            <img src="image/guardiula.jpeg" alt="Coach Pep Guardiola" class="coach-image coach-image-anchelotti">
+            <div class="coach-info">
+               <h5 class="coach-name">Pep Guardiola</h5>
+               <p class="coach-description">Entraîneur innovant, ancien joueur du FC Barcelone</p>
+               <div class="coach-contact">
+                  <center><a href="cv-coach.html" class="btn btn-primary">voir CV</a></center>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+
+
+<!-- Section Gym -->
+<div class="container py-5" id="section-gym">
+   <div class="row">
+      <div class="col-12">
+         <div class="titlepage">
+            <h2 class="text-center mb-4">Nos Formations de Gym</h2>
+            <p class="text-center mb-4">Découvrez nos formations de gym pour tous les niveaux, du renforcement musculaire à la préparation physique complète. Des entraînements adaptés pour atteindre vos objectifs de fitness.</p>
+         </div>
+      </div>
+   </div>
+</div>
+
+<!-- Formations Gym -->
+<div class="container">
+   <div class="row">
+      <!-- Formation Chest -->
+      <div class="col-md-6 mb-4">
+         <div class="formation-card" data-type="payante" data-level="intermediaire" data-sport="gym">
+            <div class="card h-100">
+               <img src="image/chest.jpg" alt="Formation Gym - Pectoraux" style="width: 100%; height: auto;">
+               <div class="card-overlay">
+                  <div class="card-body">
+                     <h5 class="card-title">Pectoraux</h5>
+                     <p class="card-text">Formation complète pour développer vos pectoraux. Techniques d'entraînement spécifiques et programme adapté à votre niveau.</p>
+                     <div class="formation-filters">
+                        <span class="badge bg-primary">Payante</span>
+                        <span class="badge bg-info">Intermédiaire</span>
+                     </div>
+                     <div class="price-tag">250€</div>
+                     <button class="btn btn-primary" onclick="ouvrirModalPaiement('gym-chest')">S'inscrire</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!-- Formation Back -->
+      <div class="col-md-6 mb-4">
+         <div class="formation-card" data-type="payante" data-level="avance" data-sport="gym">
+            <div class="card h-100">
+               <img src="image/back.png" alt="Formation Gym - Dos" style="width: 100%; height: auto;">
+               <div class="card-overlay">
+                  <div class="card-body">
+                     <h5 class="card-title">Dos</h5>
+                     <p class="card-text">Formation spécialisée pour le développement musculaire du dos. Techniques d'entraînement avancées et programme personnalisé.</p>
+                     <div class="formation-filters">
+                        <span class="badge bg-primary">Payante</span>
+                        <span class="badge bg-success">Avancé</span>
+                     </div>
+                     <div class="price-tag">350€</div>
+                     <button class="btn btn-primary" onclick="ouvrirModalPaiement('gym-back')">S'inscrire</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!-- Formation Abs -->
+      <div class="col-md-6 mb-4">
+         <div class="formation-card" data-type="gratuite" data-level="debutant" data-sport="gym">
+            <div class="card h-100">
+               <img src="image/abs.jpeg" alt="Formation Gym - Abdominaux" style="width: 100%; height: auto;">
+               <div class="card-overlay">
+                  <div class="card-body">
+                     <h5 class="card-title">Abdominaux</h5>
+                     <p class="card-text">Formation complète pour développer vos abdominaux. Techniques d'entraînement efficaces et programme adapté.</p>
+                     <div class="formation-filters">
+                        <span class="badge bg-success">Gratuite</span>
+                        <span class="badge bg-warning">Débutant</span>
+                     </div>
+                     <div class="price-tag free">0 $</div>
+                     <button class="btn btn-primary" onclick="ouvrirModalPaiement('gym-abs')">S'inscrire</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!-- Formation Leg -->
+      <div class="col-md-6 mb-4">
+         <div class="formation-card" data-type="payante" data-level="avance" data-sport="gym">
+            <div class="card h-100">
+               <img src="image/leggym.jpeg" alt="Formation Gym - Jambes" style="width: 100%; height: auto;">
+               <div class="card-overlay">
+                  <div class="card-body">
+                     <h5 class="card-title">Jambes</h5>
+                     <p class="card-text">Formation spécialisée pour le développement musculaire des jambes. Techniques d'entraînement avancées et programme personnalisé.</p>
+                     <div class="formation-filters">
+                        <span class="badge bg-primary">Payante</span>
+                        <span class="badge bg-success">Avancé</span>
+                     </div>
+                     <div class="price-tag">300€</div>
+                     <button class="btn btn-primary" onclick="ouvrirModalPaiement('gym-leg')">S'inscrire</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- Section Coachs Gym -->
+<div class="container py-5" id="coachs-gym">
+    <div class="row">
+       <div class="col-12">
+          <div class="titlepage">
+             <h2>Coachs Gym</h2>
+             <span>Nos coachs experts en gym</span>
+          </div>
+       </div>
+    </div>
+    <div class="row">
+       <!-- Coach 1 -->
+       <div class="col-md-4 mb-4">
+          <div class="coach-card">
+             <img src="image/coach-gym.jpeg" alt="Coach Gym 1" class="coach-image coach-image-anchelotti">
+             <div class="coach-info">
+                <h5 class="coach-name">Coach Mikle </h5>
+                <p class="coach-description">Expert en musculation et nutrition </p>
+                <div class="coach-contact">
+                  <center><a href="cv-coach.html" class="btn btn-primary">voir CV</a></center> 
+                </div>
+             </div>
+          </div>
+       </div>
+       <!-- <div class="col-md-4 mb-4">
+          <div class="coach-card">
+             <img src="image/coach-gym-2.jpg" alt="Coach Gym 2" class="coach-image">
+             <div class="coach-info">
+                <h5 class="coach-name">Coach Youssef</h5>
+                <p class="coach-description">Spécialiste en force et hypertrophie</p>
+                <div class="coach-contact">
+                   <a href="#" class="btn btn-primary">Contacter</a>
+                </div>
+             </div>
+          </div>
+       </div>Coach 2 -->
+       
+       <!-- <div class="col-md-4 mb-4">
+          <div class="coach-card">
+             <img src="image/coach-gym-3.jpg" alt="Coach Gym 3" class="coach-image">
+             <div class="coach-info">
+                <h5 class="coach-name">Coach Hicham</h5>
+                <p class="coach-description">Coach en fitness et santé</p>
+                <div class="coach-contact">
+                   <a href="#" class="btn btn-primary">Contacter</a>
+                </div>
+             </div>
+          </div>
+       </div> Coach 3 -->
+      
+    </div>
+</div>
+
+<!-- Modal de paiement -->
+<div class="modal fade" id="modalPaiement" tabindex="-1" aria-labelledby="modalPaiementLabel" aria-hidden="true">
+   <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" id="modalPaiementLabel">Informations de paiement</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+         </div>
+         <div class="modal-body">
+            <form id="formPaiement">
+               <div class="mb-3">
+                  <label for="nomCarte" class="form-label">Nom sur la carte</label>
+                  <input type="text" class="form-control" id="nomCarte" required>
+               </div>
+               <div class="mb-3">
+                  <label for="numeroCarte" class="form-label">Numéro de carte</label>
+                  <input type="text" class="form-control" id="numeroCarte" pattern="\d{16}" required>
+               </div>
+               <div class="row">
+                  <div class="col-md-6 mb-3">
+                     <label for="dateExpiration" class="form-label">Date d'expiration</label>
+                     <input type="text" class="form-control" id="dateExpiration" placeholder="MM/AA" pattern="\d{2}/\d{2}" required>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                     <label for="cryptogramme" class="form-label">Cryptogramme</label>
+                     <input type="text" class="form-control" id="cryptogramme" pattern="\d{3}" required>
+                  </div>
+               </div>
+               <div class="mb-3">
+                  <label for="adresse" class="form-label">Adresse de facturation</label>
+                  <input type="text" class="form-control" id="adresse" required>
+               </div>
+               <div class="mb-3">
+                  <label for="codePostal" class="form-label">Code postal</label>
+                  <input type="text" class="form-control" id="codePostal" required>
+               </div>
+               <div class="mb-3">
+                  <label for="ville" class="form-label">Ville</label>
+                  <input type="text" class="form-control" id="ville" required>
+               </div>
+               <div class="mb-3">
+                  <label for="pays" class="form-label">Pays</label>
+                  <input type="text" class="form-control" id="pays" required>
+               </div>
+               <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="email" required>
+               </div>
+               <div class="mb-3">
+                  <label for="telephone" class="form-label">Téléphone</label>
+                  <input type="tel" class="form-control" id="telephone" required>
+               </div>
+               <div class="mb-3">
+                  <div class="form-check">
+                     <input class="form-check-input" type="checkbox" id="conditions" required>
+                     <label class="form-check-label" for="conditions">
+                        J'accepte les <a href="#">conditions générales d'utilisation</a>
+                     </label>
+                  </div>
+               </div>
+               <button type="submit" class="btn btn-primary">Enregistrer</button>
+            </form>
+         </div>
+      </div>
+   </div>
+</div>
+
+<!-- Scripts -->
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+   // Initialiser le modal
+   var modalPaiement = new bootstrap.Modal(document.getElementById('modalPaiement'));
+
+   // Gestion du formulaire de paiement
+   function ouvrirModalPaiement(formationId) {
+      // Stocker l'ID de la formation
+      localStorage.setItem('formationId', formationId);
+      modalPaiement.show();
+   }
+
+   // Soumission du formulaire
+   document.getElementById('formPaiement').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Récupérer les données du formulaire
+      const formationId = localStorage.getItem('formationId');
+      const nomCarte = document.getElementById('nomCarte').value;
+      const numeroCarte = document.getElementById('numeroCarte').value;
+      const dateExpiration = document.getElementById('dateExpiration').value;
+      const cryptogramme = document.getElementById('cryptogramme').value;
+      const adresse = document.getElementById('adresse').value;
+      const codePostal = document.getElementById('codePostal').value;
+      const ville = document.getElementById('ville').value;
+      const pays = document.getElementById('pays').value;
+      const email = document.getElementById('email').value;
+      const telephone = document.getElementById('telephone').value;
+
+      // Valider les données
+      if (!nomCarte || !numeroCarte || !dateExpiration || !cryptogramme || !adresse || !codePostal || !ville || !pays || !email || !telephone) {
+         alert('Veuillez remplir tous les champs');
+         return;
+      }
+
+      // Fermer le modal de paiement
+      modalPaiement.hide();
+
+      // Rediriger vers la page de la formation
+      window.location.href = 'formation.html?id=' + formationId;
+   });
+</script>
 
 <!-- footer section start -->
       <div class="footer_section layout_padding">
@@ -207,7 +541,96 @@
       </div>
       <!-- copyright section end -->    
       <!-- Javascript files-->
-     <script src="js/jquery.min.js"></script> 
+     <script src="js/jquery.min.js"></script>
+   <script>
+      // Gestion du formulaire de paiement
+      function ouvrirModalPaiement(formationId) {
+         // Stocker l'ID de la formation
+         localStorage.setItem('formationId', formationId);
+         $('#modalPaiement').modal('show');
+      }
+
+      // Soumission du formulaire
+      $('#formPaiement').on('submit', function(e) {
+         e.preventDefault();
+         
+         // Récupérer les données du formulaire
+         const formationId = localStorage.getItem('formationId');
+         const nomCarte = $('#nomCarte').val();
+         const numeroCarte = $('#numeroCarte').val();
+         const dateExpiration = $('#dateExpiration').val();
+         const cryptogramme = $('#cryptogramme').val();
+         const adresse = $('#adresse').val();
+         const codePostal = $('#codePostal').val();
+         const ville = $('#ville').val();
+         const pays = $('#pays').val();
+         const email = $('#email').val();
+         const telephone = $('#telephone').val();
+
+         // Valider les données
+         if (!nomCarte || !numeroCarte || !dateExpiration || !cryptogramme || !adresse || !codePostal || !ville || !pays || !email || !telephone) {
+            alert('Veuillez remplir tous les champs');
+            return;
+         }
+
+         // Fermer le modal de paiement
+         $('#modalPaiement').modal('hide');
+
+         // Rediriger vers la page de la formation
+         window.location.href = 'formation.html?id=' + formationId;
+      });
+
+      // Filtrer les formations
+      $(document).ready(function() {
+         // Filtrer par type de formation
+         $('.filter-type').on('click', function() {
+            const type = $(this).data('type');
+            $('.formation-card').hide();
+            if (type === 'all') {
+               $('.formation-card').show();
+            } else {
+               $('.formation-card[data-type="' + type + '"]').show();
+            }
+            
+            // Scroller vers la section des formations
+            $('html, body').animate({
+               scrollTop: $('#section-formations').offset().top
+            }, 500);
+         });
+
+         // Filtrer par niveau
+         $('.filter-level').on('click', function() {
+            const level = $(this).data('level');
+            $('.formation-card').hide();
+            if (level === 'all') {
+               $('.formation-card').show();
+            } else {
+               $('.formation-card[data-level="' + level + '"]').show();
+            }
+            
+            // Scroller vers la section des formations
+            $('html, body').animate({
+               scrollTop: $('#section-formations').offset().top
+            }, 500);
+         });
+
+         // Filtrer par sport
+         $('.filter-sport').on('click', function() {
+            const sport = $(this).data('sport');
+            $('.formation-card').hide();
+            if (sport === 'all') {
+               $('.formation-card').show();
+            } else {
+               $('.formation-card[data-sport="' + sport + '"]').show();
+            }
+            
+            // Scroller vers la section des formations
+            $('html, body').animate({
+               scrollTop: $('#section-formations').offset().top
+            }, 500);
+         });
+      });
+   </script> 
       <script src="js/popper.min.js"></script>
       <script src="js/bootstrap.bundle.min.js"></script>
       <script src="js/main.js"></script>
@@ -251,24 +674,37 @@
 
          // Filtrer les formations
          function filtrerFormations() {
-             $('.formation-card').each(function() {
-                 const card = $(this);
-                 const isVisible = 
-                     (currentFilters.type === 'all' || card.data('type') === currentFilters.type) &&
-                     (currentFilters.level === 'all' || card.data('level') === currentFilters.level) &&
-                     (currentFilters.sport === 'all' || card.data('sport') === currentFilters.sport);
+             // Récupérer le filtre de sport sélectionné
+             const sport = $('.filter-btn[data-filter].active').data('filter') || 'all';
 
-                 if (isVisible) {
-                     card.removeClass('hidden');
-                 } else {
-                     card.addClass('hidden');
-                 }
-             });
+             // Afficher ou masquer les sections entières
+             if (sport === 'all') {
+                 $('#section-football').removeClass('hidden');
+                 $('#section-gym').removeClass('hidden');
+             } else if (sport === 'football') {
+                 $('#section-football').removeClass('hidden');
+                 $('#section-gym').addClass('hidden');
+             } else if (sport === 'gym') {
+                 $('#section-football').addClass('hidden');
+                 $('#section-gym').removeClass('hidden');
+             }
          }
 
          // Initialiser les formations au chargement de la page
          $(document).ready(function() {
              initialiserFormations();
+             
+             // Ajouter les écouteurs d'événements pour les filtres
+             $('.filter-btn').click(function() {
+                 // Désactiver le bouton actif précédent
+                 $(this).closest('.btn-group-vertical').find('.active').removeClass('active');
+                 
+                 // Activer le bouton cliqué
+                 $(this).addClass('active');
+                 
+                 // Appliquer le filtrage
+                 filtrerFormations();
+             });
          });
 
          // Gérer les clics sur les boutons de filtre
@@ -285,6 +721,17 @@
              
              // Appliquer le filtrage
              filtrerFormations();
+             
+             // Scroll automatique vers la section correspondante
+             if (filterValue === 'football') {
+                 $('html, body').animate({
+                     scrollTop: $('#section-football').offset().top
+                 }, 500);
+             } else if (filterValue === 'gym') {
+                 $('html, body').animate({
+                     scrollTop: $('#section-gym').offset().top
+                 }, 500);
+             }
          });
 
          // Modal de paiement
@@ -378,6 +825,55 @@
         padding: 2rem 0;
       }
 
+      /* Style pour les cartes des coachs */
+      .coach-card {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        position: relative;
+        transition: transform 0.3s ease;
+      }
+
+      .coach-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .coach-image {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+      }
+
+      .coach-image-anchelotti {
+        object-position: top;
+      }
+
+      .coach-info {
+        padding: 20px;
+        text-align: center;
+      }
+
+      .coach-name {
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .coach-description {
+        color: #666;
+        margin-bottom: 20px;
+      }
+
+      .coach-contact {
+        margin-top: 15px;
+      }
+
+      .coach-contact a {
+        text-decoration: none;
+      }
+
+
+
       /* Section titre */
       .titlepage {
         text-align: center;
@@ -411,19 +907,70 @@
         color: #333;
       }
       
+      /* Boutons de filtrage */
+      .filter-group {
+        margin: 2rem auto;
+        max-width: 300px;
+        text-align: center;
+      }
+
+      .filter-group h6 {
+        margin-bottom: 1rem;
+        color: #333;
+      }
+
+      .filter-btn {
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+        width: 100%;
+        margin-bottom: 0.5rem;
+      }
+
+      .filter-btn:last-child {
+        margin-bottom: 0;
+      }
+
+      /* Type de formation */
       .btn-outline-primary {
-        margin-right: 0.5rem;
-        margin-bottom: 0.5rem;
+        color: #007bff;
+        border-color: #007bff;
       }
-      
+      .btn-outline-primary:hover {
+        background-color: #007bff;
+        color: white;
+      }
+      .btn-outline-primary.active {
+        background-color: #007bff;
+        color: white;
+      }
+
+      /* Niveau */
       .btn-outline-success {
-        margin-right: 0.5rem;
-        margin-bottom: 0.5rem;
+        color: #28a745;
+        border-color: #28a745;
       }
-      
+      .btn-outline-success:hover {
+        background-color: #28a745;
+        color: white;
+      }
+      .btn-outline-success.active {
+        background-color: #28a745;
+        color: white;
+      }
+
+      /* Sport */
       .btn-outline-info {
-        margin-right: 0.5rem;
-        margin-bottom: 0.5rem;
+        color: #17a2b8;
+        border-color: #17a2b8;
+      }
+      .btn-outline-info:hover {
+        background-color: #17a2b8;
+        color: white;
+      }
+      .btn-outline-info.active {
+        background-color: #17a2b8;
+        color: white;
       }
       
       .btn.active {
@@ -779,6 +1326,12 @@
         width: 80%;
         max-width: 500px;
         border-radius: 5px;
+      }
+
+      .modal-content .formation-card .card img {
+         width: 100%;
+         height: 200px;
+         object-fit: cover;
       }
 
       .modal-header {
