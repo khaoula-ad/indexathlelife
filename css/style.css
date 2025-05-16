@@ -1518,7 +1518,13 @@ body {
 	color: #333;               /* optionnel, couleur foncée lisible */
 	margin-bottom: 10px;       /* espacement si nécessaire */
 }
-
+.confirmation-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+    padding: 30px;
+}
 
 
 
