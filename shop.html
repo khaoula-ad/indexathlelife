@@ -57,6 +57,7 @@
           <li class="nav-item"><a class="nav-link" href="news.html">News</a></li>
           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
           <li class="nav-item"><a class="nav-link" href="compte.html">Compte</a></li>
+          <li class="nav-item"><a class="nav-link" href="favoris.html">fav</a></li>
           <li class="nav-item d-flex align-items-center">
             <a class="nav-link" href="login.html">Login</a>
             <a class="nav-link ps-2" href="panier.html"><img src="images/trolly-icon.png" alt="Cart" style="height: 24px;"></a>
@@ -76,7 +77,12 @@
           <img src="image/mat2webp.png" class="card-img-top" alt="Leg Press Machine">
           <div class="card-body">
             <h5 class="card-title">Leg Press Machine – $500</h5>
-            <center><a href="produit.html" class="btn btn-outline-primary">Acheter</a></center>
+            <center>
+              <a href="produit.html" class="btn btn-outline-primary">Acheter</a>
+              <button class="btn btn-outline-danger ms-2" onclick="ajouterAuxFavoris('Leg Press Machine', 'image/mat2webp.png', 500)">
+                <i class="fa fa-heart"></i>
+              </button>
+            </center>
           </div>
         </div>
       </div>
@@ -85,7 +91,12 @@
           <img src="image/vetwebp.png" class="card-img-top" alt="Nike Sportswear">
           <div class="card-body">
             <h5 class="card-title">Nike Sportswear – $40</h5>
-            <center><a href="produit.html" class="btn btn-outline-primary">Acheter</a></center>
+            <center>
+              <a href="produit.html" class="btn btn-outline-primary">Acheter</a>
+              <button class="btn btn-outline-danger ms-2" onclick="ajouterAuxFavoris('Nike Sportswear', 'image/vetwebp.png', )">
+                <i class="fa fa-heart"></i>
+              </button>
+            </center>
           </div>
         </div>
       </div>
@@ -94,7 +105,12 @@
           <img src="image/comp.webp" class="card-img-top" alt="Multivitamines">
           <div class="card-body">
             <h5 class="card-title">Multivitamines – $20</h5>
-            <center><a href="produit.html" class="btn btn-outline-primary">Acheter</a></center>
+            <center>
+              <a href="produit.html" class="btn btn-outline-primary">Acheter</a>
+              <button class="btn btn-outline-danger ms-2" onclick="ajouterAuxFavoris('NMultivitamines', 'image/comp.webp', 20)">
+                <i class="fa fa-heart"></i>
+              </button>
+            </center>
           </div>
         </div>
       </div>
@@ -103,7 +119,12 @@
           <img src="image/clothesf.png" class="card-img-top" alt="Leg Press Machine">
           <div class="card-body">
             <h5 class="card-title">Ensemble GYM – $50</h5>
-            <center><a href="produit.html" class="btn btn-outline-primary">Acheter</a></center>
+            <center>
+              <a href="produit.html" class="btn btn-outline-primary">Acheter</a>
+              <button class="btn btn-outline-danger ms-2" onclick="ajouterAuxFavoris('Ensemble GYM', 'image/clothesf.png', 50)">
+                <i class="fa fa-heart"></i>
+              </button>
+            </center>
           </div>
         </div>
       </div>
@@ -200,6 +221,20 @@
          $("#main").click(function(){
              $("#navbarSupportedContent").toggleClass("nav-normal")
          })
+      </script>
+      <script>
+        function ajouterAuxFavoris(nom, image, prix) {
+          let favoris = JSON.parse(localStorage.getItem("favoris")) || [];
+          const existe = favoris.some(item => item.nom === nom);
+      
+          if (!existe) {
+            favoris.push({ nom, image, prix });
+            localStorage.setItem("favoris", JSON.stringify(favoris));
+            alert("Ajouté aux favoris !");
+          } else {
+            alert("Ce produit est déjà dans vos favoris.");
+          }
+        }
       </script>
    </body>
 </html>
