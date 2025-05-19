@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation Foot - AthleLife</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #475569;
+            --background-light: #f8fafc;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            background-color: var(--background-light);
+            padding: 20px;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: var(--secondary-color);
+        }
+
+        .formation-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px var(--shadow-color);
+            transition: transform 0.3s ease;
+        }
+
+        .formation-container:hover {
+            transform: translateY(-5px);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .video-section {
+            margin-bottom: 35px;
+            background: var(--background-light);
+            padding: 25px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .video-section:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px var(--shadow-color);
+        }
+
+        .exercice-section {
+            margin-bottom: 35px;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px var(--shadow-color);
+        }
+
+        .exercice {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: var(--background-light);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .exercice:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow-color);
+        }
+
+        .exercice h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .exercice ul {
+            padding-left: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .exercice li {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .exercice li strong {
+            color: var(--primary-color);
+        }
+
+        .exercice p {
+            margin-top: 15px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .video-container {
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 15px;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 480px;
+            border: none;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .formation-container {
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .video-container iframe {
+                height: 300px;
+            }
+
+            .exercice {
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .formation-container {
+                padding: 20px;
+            }
+
+            .exercice {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="formation-container">
+        <h1 class="text-center mb-4">Formation Foot - Techniques Avancées</h1>
+        
+        <!-- Section Vidéo -->
+        <div class="video-section">
+            <h2 class="text-center mb-3">Vidéo d'entraînement</h2>
+            <div class="video-container">
+                <iframe width="854" height="480" src="https://www.youtube.com/embed/C9VL5lVayPQ" 
+                        title="La Meilleure Séance TECHNIQUE - Entraînement Complet" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+            </div>
+        </div>
+
+     
+    </div>
+</body>
+</html>

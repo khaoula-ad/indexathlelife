@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Gestion des Coachs - AthleLife Admin</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="assets/css/style.css"/>
+    <style>
+        .coach-card {
+            transition: transform 0.3s ease;
+        }
+        .coach-card:hover {
+            transform: translateY(-5px);
+        }
+        .coach-image {
+            height: 250px;
+            object-fit: cover;
+            object-position: top;
+        }
+        .coach-info {
+            padding: 20px;
+        }
+        .coach-speciality {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .rating {
+            color: #ffc107;
+        }
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .action-buttons button {
+            padding: 5px 15px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-xl navbar-dark bg-dark px-4">
+        <div class="container h-100">
+            <a class="navbar-brand" href="index.html">
+                <img src="image/nvlogobg.png" class="me-2" style="height: 150px;">
+            </a>
+            <button class="navbar-toggler ml-auto mr-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars tm-nav-icon"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto h-100">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="fas fa-tachometer-alt"></i>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html">
+                            <i class="fas fa-box-open"></i>
+                            Produits
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="coaches.html">
+                            <i class="fas fa-user-tie"></i>
+                            Coachs
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="formations.html">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            Formations
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">
+                            <i class="fas fa-blog"></i>
+                            Blog
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>Gestion des Coachs</h2>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCoachModal">
+                <i class="fas fa-plus"></i> Ajouter un coach
+            </button>
+        </div>
+
+        <div class="row g-4">
+            <!-- Coach 1 -->
+            <div class="col-md-4">
+                <div class="card coach-card">
+                    <img src="image/coach-gym.jpeg" class="card-img-top coach-image" alt="Coach 1">
+                    <div class="coach-info">
+                        <h5 class="card-title mb-2">Coach Mikle O</h5>
+                        <div class="coach-speciality">
+                            <i class="fas fa-dumbbell"></i> Coach Fitness
+                        </div>
+                        <div class="rating mt-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="ms-2">4.5/5</span>
+                        </div>
+                        <div class="action-buttons mt-3">
+                            <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editCoachModal">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteCoachModal">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coach 2 -->
+            <div class="col-md-4">
+                <div class="card coach-card">
+                    <img src="image/anchelloti.jpeg" class="card-img-top coach-image" alt="Coach 2">
+                    <div class="coach-info">
+                        <h5 class="card-title mb-2">Ancelotti C</h5>
+                        <div class="coach-speciality">
+                            <i class="fas fa-running"></i> Coach football & performance 
+                        </div>
+                        <div class="rating mt-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="ms-2">5/5</span>
+                        </div>
+                        <div class="action-buttons mt-3">
+                            <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editCoachModal">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteCoachModal">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coach Flick -->
+            <div class="col-md-4">
+                <div class="card coach-card">
+                    <img src="image/flick.webp" class="card-img-top coach-image" alt="Coach Hansi Flick">
+                    <div class="coach-info">
+                        <h5 class="card-title mb-2">Hansi Flick</h5>
+                        <div class="coach-speciality">
+                            <i class="fas fa-running"></i> Coach Football
+                        </div>
+                        <div class="rating mt-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="ms-2">4.5/5</span>
+                        </div>
+                        <div class="action-buttons mt-3">
+                            <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editCoachModal">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteCoachModal">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coach Guardiola -->
+            <div class="col-md-4">
+                <div class="card coach-card">
+                    <img src="image/guardiula.jpeg" class="card-img-top coach-image" alt="Coach Pep Guardiola">
+                    <div class="coach-info">
+                        <h5 class="card-title mb-2">Pep Guardiola</h5>
+                        <div class="coach-speciality">
+                            <i class="fas fa-running"></i> Coach Football
+                        </div>
+                        <div class="rating mt-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="ms-2">5/5</span>
+                        </div>
+                        <div class="action-buttons mt-3">
+                            <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editCoachModal">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteCoachModal">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Modifier Coach -->
+        <div class="modal fade" id="editCoachModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Modifier le coach</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label">Nom complet</label>
+                                <input type="text" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Spécialité</label>
+                                <select class="form-select" required>
+                                    <option value="">Sélectionner une spécialité</option>
+                                    <option value="football">Football</option>
+                                    <option value="gym">Gym</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Description</label>
+                                <textarea class="form-control" rows="3" required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Note</label>
+                                <select class="form-select" required>
+                                    <option value="">Sélectionner une note</option>
+                                    <option value="1">1/5</option>
+                                    <option value="2">2/5</option>
+                                    <option value="3">3/5</option>
+                                    <option value="4">4/5</option>
+                                    <option value="5">5/5</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Image</label>
+                                <input type="file" class="form-control" accept="image/*">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">CV</label>
+                                <input type="file" class="form-control" accept=".pdf">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                        <button type="button" class="btn btn-primary">Enregistrer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Ajouter Coach -->
+        <div class="modal fade" id="addCoachModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Ajouter un coach</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label">Nom complet</label>
+                                <input type="text" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Spécialité</label>
+                                <select class="form-select" required>
+                                    <option value="">Sélectionner une spécialité</option>
+                                    <option value="football">Football</option>
+                                    <option value="gym">Gym</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Description</label>
+                                <textarea class="form-control" rows="3" required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Note</label>
+                                <select class="form-select" required>
+                                    <option value="">Sélectionner une note</option>
+                                    <option value="1">1/5</option>
+                                    <option value="2">2/5</option>
+                                    <option value="3">3/5</option>
+                                    <option value="4">4/5</option>
+                                    <option value="5">5/5</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Image</label>
+                                <input type="file" class="form-control" accept="image/*">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">CV</label>
+                                <input type="file" class="form-control" accept=".pdf">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                        <button type="button" class="btn btn-primary">Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Supprimer Coach -->
+        <div class="modal fade" id="deleteCoachModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Supprimer le coach</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Êtes-vous sûr de vouloir supprimer ce coach ? Cette action est irréversible.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                        <button type="button" class="btn btn-danger">Supprimer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

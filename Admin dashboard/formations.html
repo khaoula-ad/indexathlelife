@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Gestion des Formations - AthleLife Admin</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="assets/css/style.css"/>
+    <style>
+        .formation-card {
+            transition: transform 0.3s ease;
+        }
+        .formation-card:hover {
+            transform: translateY(-5px);
+        }
+        .formation-image {
+            height: 200px;
+            object-fit: cover;
+        }
+        .formation-info {
+            padding: 20px;
+        }
+        .formation-duration {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .formation-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2563eb;
+        }
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .action-buttons button {
+            padding: 5px 15px;
+        }
+        .formation-status {
+            padding: 5px 10px;
+            border-radius: 15px;
+        }
+        .status-active {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .status-inactive {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-xl navbar-dark bg-dark px-4">
+        <div class="container h-100">
+            <a class="navbar-brand" href="index.html">
+                <img src="image/nvlogobg.png" class="me-2" style="height: 150px;">
+            </a>
+            <button class="navbar-toggler ml-auto mr-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars tm-nav-icon"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto h-100">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="fas fa-tachometer-alt"></i>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html">
+                            <i class="fas fa-box-open"></i>
+                            Produits
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="coaches.html">
+                            <i class="fas fa-user-tie"></i>
+                            Coachs
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="formations.html">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            Formations
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">
+                            <i class="fas fa-blog"></i>
+                            Blog
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>Gestion des Formations</h2>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addFormationModal">
+                <i class="fas fa-plus"></i> Ajouter une formation
+            </button>
+        </div>
+
+        <div class="row g-4">
+            <!-- Formation Débutant -->
+            <div class="col-md-4">
+                <div class="card formation-card" data-type="gratuite" data-level="debutant" data-sport="football">
+                    <img src="image/jonglage.jpeg" class="card-img-top formation-image" alt="Formation Football - Initiation">
+                    <div class="formation-info">
+                        <h5 class="card-title mb-2">Découverte du football pour les débutants. Apprendre les bases du jeu et les règles fondamentales.</h5>
+                        <div class="formation-duration">
+                            <i class="fas fa-clock"></i> 12 semaines
+                        </div>
+                        <div class="formation-price mt-2">0 $</div>
+                        <div class="formation-filters">
+                            <span class="badge bg-success">Gratuite</span>
+                            <span class="badge bg-warning">Débutant</span>
+                        </div>
+                        <div class="action-buttons mt-3">
+                            <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editFormationModal">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteFormationModal">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formation Intermédiaire -->
+            <div class="col-md-4">
+                <div class="card formation-card" data-type="payante" data-level="intermediaire" data-sport="football">
+                    <img src="image/shoot.jpeg" class="card-img-top formation-image" alt="Formation Football - Niveau Intermédiaire">
+                    <div class="formation-info">
+                        <h5 class="card-title mb-2">Amélioration des techniques de tir et de passe. Développement des capacités tactiques et physiques.</h5>
+                        <div class="formation-duration">
+                            <i class="fas fa-clock"></i> 16 semaines
+                        </div>
+                        <div class="formation-price mt-2">300€</div>
+                        <div class="formation-filters">
+                            <span class="badge bg-primary">Payante</span>
+                            <span class="badge bg-info">Intermédiaire</span>
+                        </div>
+                        <div class="action-buttons mt-3">
+                            <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editFormationModal">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteFormationModal">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formation Avancé -->
+            <div class="col-md-4">
+                <div class="card formation-card" data-type="payante" data-level="avance" data-sport="football">
+                    <img src="image/dribble.jpg" class="card-img-top formation-image" alt="Formation Football - Niveau Avancé">
+                    <div class="formation-info">
+                        <h5 class="card-title mb-2">Formation intensive pour les joueurs expérimentés. Techniques avancées, stratégies tactiques et préparation mentale.</h5>
+                        <div class="formation-duration">
+                            <i class="fas fa-clock"></i> 20 semaines
+                        </div>
+                        <div class="formation-price mt-2">500€</div>
+                        <div class="formation-filters">
+                            <span class="badge bg-primary">Payante</span>
+                            <span class="badge bg-success">Avancé</span>
+                        </div>
+                        <div class="action-buttons mt-3">
+                            <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editFormationModal">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteFormationModal">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formation Expert -->
+            <div class="col-md-4">
+                <div class="card formation-card" data-type="payante" data-level="expert" data-sport="football">
+                    <img src="image/tactique.jpg" class="card-img-top formation-image" alt="Formation Football - Niveau Expert">
+                    <div class="formation-info">
+                        <h5 class="card-title mb-2">Formation avancée pour les joueurs de haut niveau. Focus sur les stratégies de jeu et la préparation mentale.</h5>
+                        <div class="formation-duration">
+                            <i class="fas fa-clock"></i> 24 semaines
+                        </div>
+                        <div class="formation-price mt-2">800€</div>
+                        <div class="formation-filters">
+                            <span class="badge bg-primary">Payante</span>
+                            <span class="badge bg-success">Expert</span>
+                        </div>
+                        <div class="action-buttons mt-3">
+                            <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editFormationModal">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteFormationModal">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formation Chest -->
+            <div class="col-md-4">
+                <div class="card formation-card" data-type="payante" data-level="intermediaire" data-sport="gym">
+                    <img src="image/chest.jpg" class="card-img-top formation-image" alt="Formation Gym - Pectoraux">
+                    <div class="formation-info">
+                        <h5 class="card-title mb-2">Pectoraux</h5>
+                        <p class="card-text">Formation complète pour développer vos pectoraux. Techniques d'entraînement spécifiques et programme adapté à votre niveau.</p>
+                        <div class="formation-duration">
+                            <i class="fas fa-clock"></i> 16 semaines
+                        </div>
+                        <div class="formation-price mt-2">250€</div>
+                        <div class="formation-filters">
+                            <span class="badge bg-primary">Payante</span>
+                            <span class="badge bg-info">Intermédiaire</span>
+                        </div>
+                        <div class="action-buttons mt-3">
+                            <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editFormationModal">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteFormationModal">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formation Back -->
+            <div class="col-md-4">
+                <div class="card formation-card" data-type="payante" data-level="avance" data-sport="gym">
+                    <img src="image/back.png" class="card-img-top formation-image" alt="Formation Gym - Dos">
+                    <div class="formation-info">
+                        <h5 class="card-title mb-2">Dos</h5>
+                        <p class="card-text">Formation spécialisée pour le développement musculaire du dos. Techniques d'entraînement avancées et programme personnalisé.</p>
+                        <div class="formation-duration">
+                            <i class="fas fa-clock"></i> 20 semaines
+                        </div>
+                        <div class="formation-price mt-2">350€</div>
+                        <div class="formation-filters">
+                            <span class="badge bg-primary">Payante</span>
+                            <span class="badge bg-success">Avancé</span>
+                        </div>
+                        <div class="action-buttons mt-3">
+                            <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editFormationModal">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteFormationModal">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formation Abs -->
+            <div class="col-md-4">
+                <div class="card formation-card" data-type="gratuite" data-level="debutant" data-sport="gym">
+                    <img src="image/abs.jpeg" class="card-img-top formation-image" alt="Formation Gym - Abdominaux">
+                    <div class="formation-info">
+                        <h5 class="card-title mb-2">Abdominaux</h5>
+                        <p class="card-text">Formation complète pour développer vos abdominaux. Techniques d'entraînement efficaces et programme adapté.</p>
+                        <div class="formation-duration">
+                            <i class="fas fa-clock"></i> 12 semaines
+                        </div>
+                        <div class="formation-price mt-2">0 $</div>
+                        <div class="formation-filters">
+                            <span class="badge bg-success">Gratuite</span>
+                            <span class="badge bg-warning">Débutant</span>
+                        </div>
+                        <div class="action-buttons mt-3">
+                            <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editFormationModal">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteFormationModal">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formation Leg -->
+            <div class="col-md-4">
+                <div class="card formation-card" data-type="payante" data-level="avance" data-sport="gym">
+                    <img src="image/leggym.jpeg" class="card-img-top formation-image" alt="Formation Gym - Jambes">
+                    <div class="formation-info">
+                        <h5 class="card-title mb-2">Jambes</h5>
+                        <p class="card-text">Formation spécialisée pour le développement musculaire des jambes. Techniques d'entraînement avancées et programme personnalisé.</p>
+                        <div class="formation-duration">
+                            <i class="fas fa-clock"></i> 20 semaines
+                        </div>
+                        <div class="formation-price mt-2">300€</div>
+                        <div class="formation-filters">
+                            <span class="badge bg-primary">Payante</span>
+                            <span class="badge bg-success">Avancé</span>
+                        </div>
+                        <div class="action-buttons mt-3">
+                            <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editFormationModal">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteFormationModal">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+
+        <!-- Modal Ajouter Formation -->
+        <div class="modal fade" id="addFormationModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Ajouter une formation</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label">Titre de la formation</label>
+                                <input type="text" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Description</label>
+                                <textarea class="form-control" rows="3" required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Durée (en semaines)</label>
+                                <input type="number" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Type de formation</label>
+                                <select class="form-select" required>
+                                    <option value="">Sélectionner le type</option>
+                                    <option value="gratuite">Gratuite</option>
+                                    <option value="payante">Payante</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Type de sport</label>
+                                <select class="form-select" required>
+                                    <option value="">Sélectionner le sport</option>
+                                    <option value="football">Football</option>
+                                    <option value="gym">Gym</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Niveau</label>
+                                <select class="form-select" required>
+                                    <option value="">Sélectionner le niveau</option>
+                                    <option value="debutant">Débutant</option>
+                                    <option value="intermediaire">Intermédiaire</option>
+                                    <option value="avance">Avancé</option>
+                                    <option value="expert">Expert</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Prix</label>
+                                <input type="number" class="form-control" step="0.01">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Image</label>
+                                <input type="file" class="form-control" accept="image/*">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">PDF</label>
+                                <input type="file" class="form-control" accept=".pdf">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Vidéo</label>
+                                <input type="file" class="form-control" accept=".mp4,.avi,.mov">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                        <button type="button" class="btn btn-primary">Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Modifier Formation -->
+        <div class="modal fade" id="editFormationModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Modifier la formation</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label">Titre de la formation</label>
+                                <input type="text" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Description</label>
+                                <textarea class="form-control" rows="3" required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Durée (en semaines)</label>
+                                <input type="number" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Type de formation</label>
+                                <select class="form-select" required>
+                                    <option value="">Sélectionner le type</option>
+                                    <option value="gratuite">Gratuite</option>
+                                    <option value="payante">Payante</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Type de sport</label>
+                                <select class="form-select" required>
+                                    <option value="">Sélectionner le sport</option>
+                                    <option value="football">Football</option>
+                                    <option value="gym">Gym</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Niveau</label>
+                                <select class="form-select" required>
+                                    <option value="">Sélectionner le niveau</option>
+                                    <option value="debutant">Débutant</option>
+                                    <option value="intermediaire">Intermédiaire</option>
+                                    <option value="avance">Avancé</option>
+                                    <option value="expert">Expert</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Prix</label>
+                                <input type="number" class="form-control" step="0.01">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Image</label>
+                                <input type="file" class="form-control" accept="image/*">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">PDF</label>
+                                <input type="file" class="form-control" accept=".pdf">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Vidéo</label>
+                                <input type="file" class="form-control" accept=".mp4,.avi,.mov">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                        <button type="button" class="btn btn-primary">Enregistrer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Supprimer Formation -->
+        <div class="modal fade" id="deleteFormationModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Supprimer la formation</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Êtes-vous sûr de vouloir supprimer cette formation ? Cette action est irréversible.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                        <button type="button" class="btn btn-danger">Supprimer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

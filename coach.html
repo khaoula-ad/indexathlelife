@@ -1,24 +1,191 @@
-<!-- News 7 : Nouveau coach -->
-<div class="col-md-4">
-  <div class="card h-100"data-type="coach"data-id="2">
-    <img src="image/coachnews.png" class="card-img-top img-fluid" alt="Coach professionnel">
-    <div class="card-body">
-      <h5 class="card-title">Coach Zinedine arrive !</h5>
-      <div class="post_text">Ajouté par : Admin <span style="float: right;">14-05-2025</span></div>
-      <p class="long_text">Ancien joueur professionnel, il partagera son expérience et formera nos jeunes talents dès juin !</p>
-      <a href="#" class="btn btn-primary lire-btn">Voir coach</a>
-    </div>
-  </div>
-</div>
-<!-- News 3 -->
-      <div class="col-md-4">
-        <div class="card h-100"data-type="coach"data-id="3">
-          <img src="image/flick.webp" class="card-img-top img-fluid" alt="nouveau coach">
-          <div class="card-body">
-            <h5 class="card-title">Coach flick</h5>
-            <div class="post_text">Ajouté par : Admin<span style="float: right;">10-05-2025</span></div>
-            <p class="long_text">Spécialiste en tactique, discipline et performance mentale pour les athlètes de haut niveau.</p>
-            <a href="#" class="btn btn-primary lire-btn">Voir coach</a>
-          </div>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AthleLife - Coach</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .coach-card {
+            border: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .coach-card:hover {
+            transform: translateY(-5px);
+        }
+        .btn-reserve {
+            background-color: #28a745;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        .btn-reserve:hover {
+            background-color: #218838;
+        }
+        .note-stars {
+            color: #ffd700;
+            font-size: 1.2em;
+        }
+        
+        /* Styles pour le CV */
+        .reservation-summary {
+            margin-top: 20px;
+        }
+        .reservation-summary .row {
+            display: flex;
+            justify-content: space-between;
+        }
+        .note-stars {
+            color: #ffd700;
+        }
+    </style>
+</head>
+<body>
+  <header class="headershop">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+      <div class="container">
+        <!-- Logo -->
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img src="image/nvlogobg.png" alt="Logo" style="height: 150px;" class="me-2">
+        </a>
+  
+        <!-- Toggler -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <!-- Nav links + login/cart -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+            <li class="nav-item"><a class="nav-link" href="calendrier.html">Calendrier</a></li>
+            <li class="nav-item"><a class="nav-link" href="sport.html">Sport</a></li>
+            <li class="nav-item"><a class="nav-link active" href="shop.html">Shop</a></li>
+            <li class="nav-item"><a class="nav-link" href="news.html">News</a></li>
+            <li class="nav-item"><a class="nav-link" href="reservations.html">Réservations</a></li>
+            <li class="nav-item"><a class="nav-link" href="compte.html">Compte</a></li>
+            <form class="form-inline my-2 my-lg-0">
+              <div class="login_menu">
+                 <ul>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="panier.html"><img src="images/trolly-icon.png" style="height:30px;"></a></li>
+                 </ul>
+              </div>
+           </form>
+          </ul>
         </div>
       </div>
+    </nav>
+  </header>
+
+    <!-- Section Coach -->
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="image/flick.webp" class="img-fluid rounded" alt="Coach photo">
+            </div>
+            <div class="col-md-6">
+                <h2><br>Hansi Flick</h2>
+                <p class="lead">Ancien entraîneur du Bayern Munich et de l'équipe d'Allemagne</p>
+                <div class="mb-3">
+                    <strong>Spécialité :</strong> Football
+                </div>
+                <div class="mb-3">
+                    <strong>Note :</strong> <span class="note-stars">⭐⭐⭐⭐⭐</span> (5/5)
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#cvModal">Voir le CV</button>
+                </div>
+                <button class="btn-reserve" onclick="ouvrirModalReservation()">Réserver une séance</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de confirmation de réservation -->
+    <div class="modal fade" id="reservationModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirmation de réservation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Êtes-vous sûr de vouloir réserver une séance avec Hansi Flick ?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-success" onclick="confirmerReservation()">Confirmer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de succès de réservation -->
+    <div class="modal fade" id="successModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <i class="fas fa-check-circle fa-3x text-success mb-3"></i>
+                    <h4 class="mb-3">Réservation confirmée !</h4>
+                    <p>Votre réservation a été envoyée avec succès.</p>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal pour le CV -->
+    <div class="modal fade" id="cvModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">CV de Hansi Flick</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <iframe src="cv/flick.pdf" width="100%" height="600px" style="border: none;"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function ouvrirModalReservation() {
+            var modal = new bootstrap.Modal(document.getElementById('reservationModal'));
+            modal.show();
+        }
+
+        function confirmerReservation() {
+            var reservationModal = bootstrap.Modal.getInstance(document.getElementById('reservationModal'));
+            if (reservationModal) {
+                reservationModal.hide();
+            }
+            
+            var successModal = new bootstrap.Modal(document.getElementById('successModal'));
+            if (successModal) {
+                successModal.show();
+            }
+        }
+
+        // Initialiser les modals au chargement de la page
+        document.addEventListener('DOMContentLoaded', function() {
+            var reservationModal = new bootstrap.Modal(document.getElementById('reservationModal'));
+            var successModal = new bootstrap.Modal(document.getElementById('successModal'));
+        });
+    </script>
+</body>
+</html>
